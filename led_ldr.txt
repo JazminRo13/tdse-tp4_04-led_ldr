@@ -1,0 +1,29 @@
+TP4 - LED LDR
+
+Para la realización del trabajo práctico se utilizó un módulo LDR fotoresistor de cuatro pines (VCC, GND, DO y AO), en lugar de una LDR individual.
+
+Debido a que el módulo incorpora un divisor resistivo interno, no fue necesario utilizar el potenciómetro variable externo de 10 kΩ indicado en el enunciado.
+
+Se conectó el módulo a la placa NUCLEO-F103RB de la siguiente manera:
+
+VCC: alimentación de 3,3 V.
+
+GND: tierra de la placa.
+
+AO: entrada analógica PA0 (ADC1_IN0).
+
+DO: sin conectar.
+
+Se verificó mediante el multímetro que la salida AO varía según la iluminación recibida por la LDR, permitiendo utilizarla como señal de entrada para el ADC.
+
+De esta manera, se adaptó el circuito solicitado utilizando el divisor resistivo del módulo en lugar del potenciómetro externo ajustable.
+
+Se observa que el valor del PWM aumenta y disminuye periódicamente, modificando el brillo del LED. La lectura del ADC presenta un comportamiento aproximadamente inverso, ya que al aumentar la iluminación sobre la LDR disminuye su resistencia y, en consecuencia, la tensión medida en la entrada analógica. Los resultados permiten comprobar la relación entre el duty cycle del PWM y la respuesta del sensor LDR
+
+ANÁLISIS DEL GRÁFICO:
+
+PWM (azul): presenta una forma de onda triangular, aumentando desde 2048 hasta 63488 y luego disminuyendo. Este comportamiento se repite periódicamente.
+
+ADC (rojo): presenta fluctuaciones, pero se observa una tendencia inversa respecto del PWM.
+
+Cuando aumenta el PWM los valors del ADC tienden a disminuir, cuando disminuye el PWM los valores del ADC tienden a aumentar. Este comportamiento evidencia una relación entre la variación del brillo del LED y la respuesta del módulo LDR.
